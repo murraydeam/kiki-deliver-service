@@ -1,0 +1,27 @@
+.body {
+  display: flex;
+  justify-content: center;
+}
+
+.app {
+  height: 600px;
+  width: 100vw;
+}
+
+.map {
+  height: 100%;
+}
+
+.marker {
+  background-image: url("../public/pin.svg");
+  background-size: cover;
+  width: 22px;
+  height: 22px;
+  background-color: orange;
+  border-radius: 11px;
+  border: solid 3px darkslategray;
+}
+
+#pin {
+  color: red;
+}
