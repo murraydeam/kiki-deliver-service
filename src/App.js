@@ -29,12 +29,25 @@ function App() {
     const addMarker = () => {
       const element = document.createElement("div");
       element.className = "marker";
+      const popupOffset = {
+        bottom: [0, -25],
+      };
+      const popup = new tt.Popup({
+        offset: popupOffset,
+      }).setHTML("This is you!");
       const marker = new tt.Marker({
         draggable: true,
         element: element,
       })
         .setLngLat([longitude, latitude])
         .addTo(map);
+
+      marker.on("dragend", () => {
+        const lngLat = marker.getLngLat();
+        setLatitude(lngLat.lat);
+        setLongitude(lngLat.lng);
+      });
+      marker.setPopup(popup).togglePopup();
     };
 
     addMarker();
